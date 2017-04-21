@@ -29,7 +29,7 @@ for i in range(lenA):
 
 #调用skimage的clear_board，清除边缘
 a = clear_border(a)
-#定义大小为3的结构圆，先经行腐蚀，防止两个肺中间的那个东西和肺连在一起
+#定义大小为5的结构圆，先经行腐蚀，防止两个肺中间的那个东西和肺连在一起
 se = disk(5);
 a = binary_erosion(a,se);
 a = label(a)
@@ -61,7 +61,7 @@ a2 = a == 1;
 a1 = a == 2;
 #定义大小为10的结构体
 se = disk(10);
-#分别对两个体做形态学开操作
+#分别对两个体做形态学闭操作
 a1 = binary_closing(a1,se);
 a2 = binary_closing(a2,se);
 a = a1 + a2;
